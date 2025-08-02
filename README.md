@@ -3,9 +3,7 @@
 
 It's located into the Web Browser app, exactly at this path:
 
-**------------------------------------------------**
-### romfs:/browser/page/e.js
-**------------------------------------------------**
+`romfs:/browser/page/e.js`
 
 The input handler in the script uses the gamepad API of the 3DS (called *"navigator.webkitGetGamepads()"*) so i had to rewrite it to use the keyboard on PC
 and because it uses the touchscreen of the console too it works for mobile users!
