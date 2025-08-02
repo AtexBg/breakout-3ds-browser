@@ -798,16 +798,24 @@ var game;
     })();
 
     (function() {
-        var d = document, body = d.body;
-        body.removeChild(d.getElementById("container"));
-        body.removeChild(d.getElementsByTagName("svg")[0]);
-        d.ontouchstart = function(e) {
-            game.bar.moveTo(e.touches[0].pageX, false);
-        };
-        d.ontouchmove = function(e) {
-            game.bar.moveTo(e.touches[0].pageX, true);
-        };
-    })();
+    var d = document, body = d.body;
+    var container = d.getElementById("container");
+    if (container && container.parentNode === body) {
+        body.removeChild(container);
+    }
+    var svg = d.getElementsByTagName("svg")[0];
+    if (svg && svg.parentNode === body) {
+        body.removeChild(svg);
+    }
+
+    d.ontouchstart = function(e) {
+        game.bar.moveTo(e.touches[0].pageX, false);
+    };
+    d.ontouchmove = function(e) {
+        game.bar.moveTo(e.touches[0].pageX, true);
+    };
+})();
+
 
     (function() {
         var charDots, charData;
