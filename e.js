@@ -841,7 +841,7 @@ var game;
         var domain;
         (function() {
             domain = "";
-            var _domain = "Ported by AtexBg";
+            var _domain = "by atexbg";
             for (var i = 0; i < _domain.length; ++i) {
                 var char = _domain.charAt(i);
                 if (charData[char]) {
@@ -925,4 +925,5 @@ var game;
     });
 
 })();
+
 
