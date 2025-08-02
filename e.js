@@ -9,8 +9,17 @@ var Param = {
     Point: {FontSize: 10, MaxLife: 30},
     Gravity: 0.075
 };
-var Button = {Left: 14, Right: 15};
-var Stick = {Left: {X: 0, Y: 1}};
+this.keysPressed = { left: false, right: false };
+
+window.addEventListener('keydown', (e) => {
+  if (e.code === 'ArrowLeft') keysPressed.left = true;
+  else if (e.code === 'ArrowRight') keysPressed.right = true;
+});
+
+window.addEventListener('keyup', (e) => {
+  if (e.code === 'ArrowLeft') keysPressed.left = false;
+  else if (e.code === 'ArrowRight') keysPressed.right = false;
+});
 
 var isZero = function(aVal) {
     var epsilon = 0.0001;
@@ -226,26 +235,12 @@ Game.prototype = {
         });
 
         {
-            var pad = navigator.webkitGetGamepads()[0];
-            {
-                if (pad.buttons[Button.Left] !== 0) {
-                    this.bar.move(-Param.Bar.VMax);
-                } else if (pad.buttons[Button.Right] !== 0) {
-                    this.bar.move(Param.Bar.VMax);
-                }
-                if (!isZero(pad.axes[Stick.Left.X])) {
-                    this.bar.move(Param.Bar.VMax * pad.axes[Stick.Left.X]);
-                }
-            }
-            if (pad.buttons[Button.Left] !== 0) {
-                this.bar.move(-Param.Bar.VMax);
-            } else if (pad.buttons[Button.Right] !== 0) {
-                this.bar.move(Param.Bar.VMax);
-            }
-            if (!isZero(pad.axes[Stick.Left.X])) {
-                this.bar.move(Param.Bar.VMax * pad.axes[Stick.Left.X]);
-            }
+    if (keysPressed.left) {
+            this.bar.move(-Param.Bar.VMax);
+        } else if (keysPressed.right) {
+            this.bar.move(Param.Bar.VMax);
         }
+    }
 
         {
             this.ball.process();
@@ -930,3 +925,4 @@ var game;
     });
 
 })();
+
