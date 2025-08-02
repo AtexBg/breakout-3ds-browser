@@ -841,7 +841,7 @@ var game;
         var domain;
         (function() {
             domain = "";
-            var _domain = "https://ported.by.atexbg"; //the "https://" will be trimmed at runtime
+            var _domain = "ported.by.atexbg"; // the "https://" will be trimmed at runtime (edit: it doesn't)
             for (var i = 0; i < _domain.length; ++i) {
                 var char = _domain.charAt(i);
                 if (charData[char]) {
@@ -925,6 +925,7 @@ var game;
     });
 
 })();
+
 
 
 
