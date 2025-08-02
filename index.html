@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Breakout 3DS</title>
+  <title>3DS Breakout PC Port</title>
   <style>
     body {
       margin: 0;
@@ -11,11 +11,17 @@
   </style>
 </head>
 <body id="container">
-  <svg></svg> <!-- Needed bc the script deletes it at load -->
+  <svg></svg>
   <script>
-    // simulate url needed for the e.js file
     var url = location.href;
   </script>
-  <script src="e.js"></script>
+  <script>
+    // slow down execution of script until DOM is ready
+    window.addEventListener("DOMContentLoaded", function () {
+      var script = document.createElement("script");
+      script.src = "e.js";
+      document.body.appendChild(script);
+    });
+  </script>
 </body>
 </html>
