@@ -1,9 +1,13 @@
-# Breakout from 3DS Web Browser
+# Hidden Breakout game from 3DS browser ported to PC and Mobile
+### So as you may already know, the 3DS web browser have a built-in hidden game of Breakout, but did you know that this is just a little Javascript game?
 
-For thoses who don't know, on the 3DS web browser if you click on "*Most visited favourites*" multiple times it loads a little JavaScript game or Breakout.
+It's located into the Web Browser app, exactly at this path:
 
-### And by exploring the RomFS of 3DS system apps (including the web browser) i found the file **romfs:/browser/page/e.js**, that was the breakout game!
+**------------------------------------------------**
+### romfs:/browser/page/e.js
+**------------------------------------------------**
 
-But it was using internal APIs from the 3DS (mostly *navigator.webkitGetGamepads()*) so i had to rewrite the input handler, so you can play it with the keyboard
+The input handler in the script uses the gamepad API of the 3DS (called *"navigator.webkitGetGamepads()"*) so i had to rewrite it to use the keyboard on PC
+and because it uses the touchscreen of the console too it works for mobile users!
 
-You can test the game with [my online ported version](https://atexbg.github.io/breakout-3ds-browser)
+![The game on my 2DS XL and my PC](picture.jpg)
