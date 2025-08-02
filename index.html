@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>3DS Browser Breakout</title>
-    <script src="e.js"></script>
-  </head>
-  <body id="container">
-    <svg></svg> <!-- Nécessaire car le script le supprime -->
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Breakout 3DS</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body id="container">
+  <svg></svg> <!-- Needed bc the script deletes it at load -->
+  <script>
+    // simulate url needed for the e.js file
+    var url = location.href;
+  </script>
+  <script src="e.js"></script>
+</body>
 </html>
