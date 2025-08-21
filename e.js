@@ -9,14 +9,16 @@ var Param = {
     Point: {FontSize: 10, MaxLife: 30},
     Gravity: 0.075
 };
-window.requestAnimFrame = 
+
+window.requestAnimFrame = // Fixed compatibility for every browser, thanks to ARandomOSDever for the issue and the fix
     window.requestAnimationFrame       ||
     window.webkitRequestAnimationFrame ||
     window.mozRequestAnimationFrame    ||
     window.oRequestAnimationFrame      ||
     window.msRequestAnimationFrame     ||
     function(cb){ return setTimeout(cb, 1000 / 60); };
-	this.keysPressed = { left: false, right: false };
+
+this.keysPressed = { left: false, right: false };
 
 window.addEventListener('keydown', (e) => {
   if (e.code === 'ArrowLeft') keysPressed.left = true;
@@ -932,6 +934,7 @@ var game;
     });
 
 })();
+
 
 
 
