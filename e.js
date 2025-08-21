@@ -9,7 +9,14 @@ var Param = {
     Point: {FontSize: 10, MaxLife: 30},
     Gravity: 0.075
 };
-this.keysPressed = { left: false, right: false };
+window.requestAnimFrame = 
+    window.requestAnimationFrame       ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame    ||
+    window.oRequestAnimationFrame      ||
+    window.msRequestAnimationFrame     ||
+    function(cb){ return setTimeout(cb, 1000 / 60); };
+	this.keysPressed = { left: false, right: false };
 
 window.addEventListener('keydown', (e) => {
   if (e.code === 'ArrowLeft') keysPressed.left = true;
@@ -230,7 +237,7 @@ Game.prototype = {
     process: function() {
 
         var that = this;
-        window.webkitRequestAnimationFrame(function() {
+        window.requestAnimFrame(function() {
             that.process();
         });
 
@@ -920,7 +927,7 @@ var game;
         })();
     })();
 
-    window.webkitRequestAnimationFrame(function() {
+    window.requestAnimFrame(function() {
         game.process();
     });
 
